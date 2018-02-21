@@ -47,3 +47,9 @@ Vue.component('MovieForm', {
     },
   },
 });
+
+// Vue.component('Home', {
+//   template: `
+//     <h1>Welcome</h1>
+//   `
+// });
