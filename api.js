@@ -5,25 +5,24 @@ const service = axios.create({
 const api = { // Return instead a promise containing all the movies,
   getAll: () => {
     return service
-    .get('/')
-    .then(res => res.data) 
-    .catch(err => {
-      console.error(err);
-      throw err;
-    })
-  }, 
-    
+      .get('/')
+      .then(res => res.data)
+      .catch(err => {
+        console.error(err);
+        throw err;
+      })
+  },
+
   getOne: id => {
     return service
-    .get('/:id')
-    .then(movie => {
-      console.log(movies);
-    })
-    .catch(err => {
-      console.error(err);
-      throw err;
-    })
-  }, // Return instead a promise containing one movie,
+      .get(`/${id}`)
+      .then(res => res.data)
+      .catch(err => {
+        console.error(err);
+        throw err;
+      })
+  },
+
   addOne: info => {
     // return service
     // .get()

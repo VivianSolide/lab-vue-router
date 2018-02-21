@@ -54,7 +54,8 @@ const Home = Vue.component('Home', {
   <h1>Welcome</h1>
   <ul>
   <li v-for="movie in movies">
-  {{ movie.title }}</li>
+    <router-link :to="movie.id">{{ movie.title }}</router-link>
+  </li>
   </ul>
   </div>
 `,
@@ -69,6 +70,30 @@ const Home = Vue.component('Home', {
     api.getAll().then(movies => {
       this.movies = movies;
       console.log(this.movies);
-    })  
+    })
+  }
+});
+
+const Movie = Vue.component('Movie', {
+  template: `
+  <div>
+  <h1>{{ movie.title }}</h1>
+    <p>Year: {{ movie.year}}</p>
+    <p>Director: {{ movie.director}}</p>
+    <p>Synopsis: {{ movie.synopsis}}</p>
+    <img :src="movie.poster">
+  </div> 
+`,
+
+  data() {
+    return {
+      movie: {},
+    };
+  },
+
+  created() {
+    api.getOne(this.$route.params.id).then(movie => {
+      this.movie = movie;
+    })
   }
 });

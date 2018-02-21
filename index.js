@@ -2,6 +2,10 @@ const routes = [
   {
     path: '/',
     component: Home
+  },
+  {
+    path: '/:id',
+    component: Movie
   }
 ]
 
