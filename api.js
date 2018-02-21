@@ -6,10 +6,7 @@ const api = { // Return instead a promise containing all the movies,
   getAll: () => {
     return service
     .get('/')
-    .then(movies => {
-      return movies;
-      console.log(movies);
-    })
+    .then(res => res.data) 
     .catch(err => {
       console.error(err);
       throw err;
@@ -20,7 +17,6 @@ const api = { // Return instead a promise containing all the movies,
     return service
     .get('/:id')
     .then(movie => {
-      return movie;
       console.log(movies);
     })
     .catch(err => {

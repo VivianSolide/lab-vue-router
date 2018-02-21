@@ -1,9 +1,3 @@
-const Home = Vue.component('Home', {
-  template: `
-    <h1>Welcome</h1>
-  `
-});
-
 const routes = [
   {
     path: '/',

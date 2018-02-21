@@ -48,8 +48,27 @@ Vue.component('MovieForm', {
   },
 });
 
-// Vue.component('Home', {
-//   template: `
-//     <h1>Welcome</h1>
-//   `
-// });
+const Home = Vue.component('Home', {
+  template: `
+  <div>
+  <h1>Welcome</h1>
+  <ul>
+  <li v-for="movie in movies">
+  {{ movie.title }}</li>
+  </ul>
+  </div>
+`,
+
+  data() {
+    return {
+      movies: [],
+    };
+  },
+
+  created() {
+    api.getAll().then(movies => {
+      this.movies = movies;
+      console.log(this.movies);
+    })  
+  }
+});
