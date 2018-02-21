@@ -54,7 +54,7 @@ const Home = Vue.component('Home', {
   <h1>Welcome</h1>
   <ul>
   <li v-for="movie in movies">
-    <router-link :to="movie.id">{{ movie.title }}</router-link>
+    <router-link :to=""movie.id"">{{ movie.title }} {{movie.id}}</router-link>
   </li>
   </ul>
   </div>
